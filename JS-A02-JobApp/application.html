@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS2-JobApplication</title>
+    <!-- Bootstrap CSS -->
+    <link 
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" 
+        rel="stylesheet" 
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" 
+        crossorigin="anonymous">
+    <!-- font awesome css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+</head>
+<body>
+    <!-- Already Applied Modal -->
+    <div class="modal" tabindex="-1" id="appModal">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Have You Already Applied?</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <p>Have you already submitted one application for this season's employment?  
+                If so, please DO NOT submit another application!   
+                Doing so slows your application and review process 
+                down significantly and you may lose the opportunity to be considered 
+                for the job you really want!</p>
+            </div>
+            <div class="modal-footer">
+                <div class="col mx-4">
+                    <a href="index.html" class="btn btn-secondary">
+                        I Have ALREADY Applied
+                    </a>
+                </div>
+                <div class="col">
+                    <button type="button" class="btn btn-warning" data-bs-dismiss="modal">I Have NOT Yet Applied</button>
+                </div>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+
+    
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-md navbar-light bg-white">
+        <div class="container">
+        <a 
+            href="index.html"
+            class="navbar-brand mb-0 h1 pt-4">
+                <img 
+                class="d-inline-block align-top"
+                src="media/yellowstoneLogo.jpg" 
+                height="60" width="256" />
+        </a>
+
+        <button 
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarNav" 
+        class="navbar-toggler"
+        aria-controls="navbarNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+        >
+            <span class="navbar-toggle-icon"></span>
+        </button>
+
+        <!-- Nav Items -->
+        <div 
+            class="collapse navbar-collapse justify-content-end" 
+            id="navbarNav">
+            <ul class="navbar-nav pt-4">
+                <li class="nav-item active px-4">
+                    <a href="index.html" class="nav-link active"> 
+                        Home
+                    </a>
+                </li>
+                <li class="nav-item px-4">
+                    <a href="application.html" class="nav-link"> 
+                        Apply Now
+                    </a>
+                </li>
+                <li class="nav-item px-4">
+                    <a href="aboutus.html" class="nav-link"> 
+                        About Us
+                    </a>
+                </li>
+            </ul>
+        </div>
+        </div>
+    </nav>    
+
+    <div class="container">        
+        <form novalidate><!-- instead of novalidate you can have an action (depending on what you need) -->
+            <!-- Line Break -->
+            <hr class="my-3"> 
+            <h4 class="my-4 text-center fw-bold">Personal Information</h4>
+            <hr class="mx-2">
+            <div class="row">
+                <!-- First Name -->
+                <div class="col-sm-5">
+                    <label for="firstName" 
+                    class="form-label">First Name</label>
+                    <input type="text" 
+                    class="form-control bg-body-secondary" id="firstName" 
+                    placeholder="Ema" required> <!-- requiered = requiered field -->
+                    <div class="invalid-feedback"> <!-- wont see this unless form is incorrect -->
+                        Valid first name is requiered.
+                    </div>
+                </div>
+                <!-- Middle Initial -->
+                <div class="col-sm-2">
+                    <label for="middleInt" 
+                    class="form-label">MI</label>
+                    <input type="text" 
+                    class="form-control bg-body-secondary" id="middleInt" 
+                    placeholder="R">
+                </div>
+                <!-- Last Name -->
+                <div class="col-sm-5">
+                    <label for="lastName" 
+                    class="form-label">Last Name</label>
+                    <input type="text" 
+                    class="form-control bg-body-secondary" id="lastName" 
+                    placeholder="Nimphius" required>
+                    <div class="invalid-feedback">
+                        Valid last name is requiered.
+                    </div>
+                </div>
+                <!-- Address -->
+                <div class="col-sm-12 mt-3">
+                    <label for="address" 
+                    class="form-label">Address</label>
+                    <input type="text" 
+                    class="form-control bg-body-secondary" id="address" placeholder="Address" required>
+                    <div class="invalid-feedback">
+                        Valid address is requiered.
+                    </div>
+                </div>
+                <!-- City -->
+                <div class="col-md-4 mt-3">
+                    <label for="city" 
+                    class="form-label">City</label>
+                    <input type="text" 
+                    class="form-control bg-body-secondary" id="city" placeholder="City Name" required>
+                    <div class="invalid-feedback">
+                        Valid city is requiered.
+                    </div>
+                </div>
+                <!-- State -->
+                <div class="col-md-2 mt-3">
+                    <label for="state" 
+                    class="form-label">State</label>
+                    <select class="form-control bg-body-secondary" 
+                    id="state">
+                        <option value="">Choose...</option>
+                        <option value="Wisconsin">Wisconsin</option>
+                        <option value="Washington">Washington</option>
+                        <option value="Portland">Portland</option>
+                    </select>
+
+                    <div class="invalid-feedback">
+                        Valid state is requiered.
+                    </div>
+                </div>
+                <!-- Country -->
+                <div class="col-md-4 mt-3">
+                    <label for="country" 
+                    class="form-label">Country</label>
+                    <select class="form-control bg-body-secondary" 
+                    id="country">
+                        <option value="Choose">Choose...</option>
+                        <option value="UnitedStates">United States</option>
+                        <option value="Canada">Canada</option>
+                    </select>
+
+                    <div class="invalid-feedback">
+                        Valid country is requiered.
+                    </div>
+                </div>
+                <!-- Zip -->
+                <div class="col-md-2 mt-3">
+                    <label for="zip" 
+                    class="form-label">Zip Code</label>
+                    <input id="zip"
+                    class="form-control bg-body-secondary" 
+                    type="number" placeholder="12345" required>
+                    <div class="invalid-feedback">
+                        Valid zip is requiered.
+                    </div>
+                </div>
+                <!-- DOB -->
+                <div class="col-sm-4 mt-3">
+                    <label for="birthday" 
+                    class="form-label">Date of Birth</label>
+                    <div class="input-group date" id="datepicker">
+                        <input type="text" class="form-control bg-body-secondary" placeholder="01/16/1998" required>
+                        <span class="input-group-append">
+                            <span class="input-group-text bg-white d-block">
+                                <i class="fa fa-calendar"></i>
+                            </span>
+                        </span>
+                        <div class="invalid-feedback">
+                            Valid birthday is requiered.
+                        </div>
+                    </div>
+                </div>
+                <!-- Email -->
+                <div class="col-sm-4 mt-3">
+                    <label for="email" 
+                    class="form-label">Email</label>
+                    <input type="text" 
+                    class="form-control bg-body-secondary" id="email" 
+                    placeholder="jsmith@gmail.com" required>
+                    <div class="invalid-feedback">
+                        Valid email is requiered.
+                    </div>
+                </div>
+                <!-- Phone Number -->
+                <div class="col-sm-4 mt-3">
+                    <label for="cell" 
+                    class="form-label">Phone Number</label>
+                    <input type="text" 
+                    class="form-control bg-body-secondary" id="cell" 
+                    placeholder="+1(414)111-1111" required>
+                    <div class="invalid-feedback">
+                        Valid email is requiered.
+                    </div>
+                </div>
+
+                <!-- Line Break : position information -->
+                <div class="container mt-5">
+                    <div class="card">
+                        <div class="card-body bg-body-secondary">
+                            <h4 class="my-3 pb-3 fw-bold text-center">Position Information</h4>
+                            <hr class="my-3">
+                            <div class="row mt-2">
+                                <div class="col-sm-12 col-md-5">
+                                    <label class="form-check-label fw-bold" for="flexRadioDefault2">
+                                        Are you applying for a seasonal or yar Round position? 
+                                      </label>
+                                </div>
+                                <div class="col-sm-12 col-md-2">
+                                    <!-- Seasonal Radio Button -->
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="radioSeasonalYearly" id="seasonalRadio" checked> <!-- checked so that seasonal is the defalt -->
+                                        <label class="form-check-label" for="flexRadioDefault1">
+                                          Seasonal Position
+                                        </label>
+                                      </div>
+                                </div>
+                                <div class="col-sm-12 col-md-3">
+                                    <!-- Yearly Radio Button -->
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="radioSeasonalYearly" id="yearlyRadio">
+                                        <label class="form-check-label" for="flexRadioDefault2">
+                                          Year Round Position
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <hr class="my-3"></h4>
+                            <p class="fw-bold pt-2">Please Select Top Three Positions</p>
+                            <p>Please select the position(s) that you are applying for in order of preference.
+                            Asterisks (***) by a job position indicates that little or no experience needed.
+                            The letters D.L. indicates the position requires a valid Drivers License.
+                            If you desire an Internship, please select Internship as your first choice.</p>
+
+                        <div class="row pb-3">
+                            <!-- Position One -->
+                            <div class="col-sm-4 mt-2">
+                                <label for="positionOne" 
+                                class="form-label fw-bold">First Choice</label>
+                                <select class="form-control bg-dark-subtle" 
+                                id="optionOne">
+                                    <option value="Choose">Choose...</option>
+                                    <option value="Dining Room Server">**Dining Room Server Assistant**</option>
+                                    <option value="Dining Room Crew">**Employee Dining Room Crew**</option>
+                                    <option value="Fast Food Crew">**Fast Food Crew**</option>
+                                    <option value="Bar Lead">Bar Lead</option>
+                                    <option value="Bartender">Bartender</option>
+                                    <option value="Bell Porter">Bell Porter</option>
+                                    <option value="Boiler Technician">Boiler Technician (D.L.)</option>
+                                    <option value="Bus Service Person">Bus Service Person</option>
+                                </select>
+                            </div>
+
+                            <!-- Position Two -->
+                            <div class="col-sm-4 mt-2">
+                                <label for="positionTwo" 
+                                class="form-label fw-bold">Second Choice</label>
+                                <select class="form-control bg-dark-subtle" 
+                                id="optionTwo">
+                                <option value="Choose">Choose...</option>
+                                <option value="Dining Room Server">**Dining Room Server Assistant**</option>
+                                <option value="Dining Room Crew">**Employee Dining Room Crew**</option>
+                                <option value="Fast Food Crew">**Fast Food Crew**</option>
+                                <option value="Bar Lead">Bar Lead</option>
+                                <option value="Bartender">Bartender</option>
+                                <option value="Bell Porter">Bell Porter</option>
+                                <option value="Boiler Technician">Boiler Technician (D.L.)</option>
+                                <option value="Bus Service Person">Bus Service Person</option>
+                                </select>
+                            </div>
+                            
+                            <!-- Position Three -->
+                            <div class="col-sm-4 mt-2">
+                                <label for="positionThree" 
+                                class="form-label fw-bold">Third Choice</label>
+                                <select class="form-control bg-dark-subtle" 
+                                id="optionThree">
+                                <option value="Choose">Choose...</option>
+                                <option value="Dining Room Server">**Dining Room Server Assistant**</option>
+                                <option value="Dining Room Crew">**Employee Dining Room Crew**</option>
+                                <option value="Fast Food Crew">**Fast Food Crew**</option>
+                                <option value="Bar Lead">Bar Lead</option>
+                                <option value="Bartender">Bartender</option>
+                                <option value="Bell Porter">Bell Porter</option>
+                                <option value="Boiler Technician">Boiler Technician (D.L.)</option>
+                                <option value="Bus Service Person">Bus Service Person</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <!-- Line Break : accept another position-->
+                        <hr class="my-3">
+                        <div class="row my-3">
+                            <div class="col-sm-12 col-md-8">
+                                <label class="form-check-label fw-bold" for="flexRadioDefault2">
+                                    Will you accept another available position if your top three choices aren't available? 
+                                  </label>
+                            </div>
+                            <div class="col-sm-6 col-md-2">
+                                <!-- Open to Other Positions Radio Button -->
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="yesRadio" id="yesRadio">
+                                    <label class="form-check-label" for="flexRadioDefault1">
+                                        Will Accept
+                                    </label>
+                                  </div>
+                            </div>
+                            <div class="col-sm-6 col-md-2">
+                                <!-- Open to Other Positions Radio Button -->
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="yesRadio" id="yesRadio" checked>
+                                    <label class="form-check-label" for="flexRadioDefault1">
+                                        Will NOT Accept
+                                    </label>
+                                  </div>
+                            </div>
+                        </div>
+
+                <!-- Line Break -->
+                <hr class="my-3">
+                <!-- Drovers Licens -->
+                <div class="div row pt-2">
+                <div class="col-sm-12 col-md-8">
+                    <label class="form-check-label fw-bold" for="flexRadioDefault2">
+                        For Maintenance, Employee Recreation, Security, Marina, Vending, Transportation and all driving jobs. Do you have a current valid Driver's License? 
+                      </label>
+                </div>
+                <div class="col-sm-6 col-md-2 mt-3">
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="yesRadio" id="yesRadio">
+                        <label class="form-check-label" for="flexRadioDefault1">
+                            Yes
+                        </label>
+                      </div>
+                </div>
+                <div class="col-sm-6 col-md-2 mt-3">
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="yesRadio" id="yesRadio" checked>
+                        <label class="form-check-label" for="flexRadioDefault1">
+                            No
+                        </label>
+                      </div>
+                </div>
+                </div>
+
+                        <!-- Line Break : start/end date-->
+                        <hr class="my-3">
+                        <div class="row">
+                            <!-- Start Date -->
+                            <div class="col-sm-6">
+                                <label for="startDate" 
+                                class="form-label fw-bold">Start Date</label>
+                                <div class="input-group date" id="datepicker">
+                                    <input type="text" class="form-control bg-dark-subtle" placeholder="01/16/2024" required>
+                                    <span class="input-group-append">
+                                        <span class="input-group-text bg-body-secondary d-block">
+                                            <i class="fa fa-calendar"></i>
+                                        </span>
+                                    </span>
+                                    <div class="invalid-feedback">
+                                        Valid start date is requiered.
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- End Date -->
+                            <div class="col-sm-6">
+                                <label for="endDate" 
+                                class="form-label fw-bold">End Date</label>
+                                <div class="input-group date" id="datepicker">
+                                    <input type="text" class="form-control bg-dark-subtle" placeholder="01/16/2024" required>
+                                    <span class="input-group-append">
+                                        <span class="input-group-text bg-body-secondary d-block">
+                                            <i class="fa fa-calendar"></i>
+                                        </span>
+                                    </span>
+                                    <div class="invalid-feedback">
+                                        Valid end date is requiered.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                
+                <h4 class="my-4 text-center fw-bold">Previous Work Experience</h4>
+                <hr class="mx-2">
+                <div class="row">
+                    <!-- Employer Name-->
+                    <div class="col-sm-12 col-md-4">
+                        <label for="employerName" 
+                        class="form-label">Employer Name</label>
+                        <input type="text" 
+                        class="form-control bg-body-secondary" id="employerName" 
+                        placeholder="Previous Employer">
+                    </div>
+
+                    <!-- Previous Position/Title -->
+                    <div class="col-sm-12 col-md-4">
+                        <label for="previousPosition" 
+                        class="form-label">Previous Position</label>
+                        <input type="text" 
+                        class="form-control bg-body-secondary" id="previousPosition" 
+                        placeholder="Cashier">
+                    </div>
+
+                    <!-- Supervisor Name-->
+                    <div class="col-sm-12 col-md-4">
+                        <label for="supervisorName" 
+                        class="form-label">Supervisor's Name</label>
+                        <input type="text" 
+                        class="form-control bg-body-secondary" id="supervisorName" 
+                        placeholder="Jane Doe">
+                    </div>
+                </div>
+
+                <!-- Previous Experience Start/End Date-->
+                <div class="row my-3">
+                    <!-- Start Date -->
+                    <div class="col-sm-6">
+                        <label for="startDate" 
+                        class="form-label">Start Date</label>
+                        <div class="input-group date" id="datepicker">
+                            <input type="text" class="form-control bg-body-secondary" placeholder="01/16/2024" required>
+                            <span class="input-group-append">
+                                <span class="input-group-text bg-body-secondary d-block">
+                                    <i class="fa fa-calendar"></i>
+                                </span>
+                            </span>
+                            <div class="invalid-feedback">
+                                Valid start date is requiered.
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End Date -->
+                    <div class="col-sm-6">
+                        <label for="endDate" 
+                        class="form-label">End Date</label>
+                        <div class="input-group date" id="datepicker">
+                            <input type="text" class="form-control bg-body-secondary" placeholder="01/16/2024" required>
+                            <span class="input-group-append">
+                                <span class="input-group-text bg-body-secondary d-block">
+                                    <i class="fa fa-calendar"></i>
+                                </span>
+                            </span>
+                            <div class="invalid-feedback">
+                                Valid end date is requiered.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Employers Address -->
+                <div class="row">
+                    <div class="col-sm-12 mt-3">
+                        <label for="employersAddress" 
+                        class="form-label">Employers Address</label>
+                        <input type="text" 
+                        class="form-control bg-body-secondary" id="employersAddress" placeholder="Address" required>
+                        <div class="invalid-feedback">
+                            Valid address is requiered.
+                        </div>
+                    </div>
+                    <!-- City -->
+                    <div class="col-md-4 mt-3">
+                        <label for="city" 
+                        class="form-label">City</label>
+                        <input type="text" 
+                        class="form-control bg-body-secondary" id="city" placeholder="City Name" required>
+                        <div class="invalid-feedback">
+                            Valid city is requiered.
+                        </div>
+                    </div>
+                    <!-- State -->
+                    <div class="col-md-2 mt-3">
+                        <label for="state" 
+                        class="form-label">State</label>
+                        <select class="form-control bg-body-secondary" 
+                        id="state">
+                            <option value="">Choose...</option>
+                            <option value="Wisconsin">Wisconsin</option>
+                            <option value="Washington">Washington</option>
+                            <option value="Portland">Portland</option>
+                        </select>
+    
+                        <div class="invalid-feedback">
+                            Valid state is requiered.
+                        </div>
+                    </div>
+                    <!-- Country -->
+                    <div class="col-md-4 mt-3">
+                        <label for="country" 
+                        class="form-label">Country</label>
+                        <select class="form-control bg-body-secondary" 
+                        id="country">
+                            <option value="Choose">Choose...</option>
+                            <option value="UnitedStates">United States</option>
+                            <option value="Canada">Canada</option>
+                        </select>
+    
+                        <div class="invalid-feedback">
+                            Valid country is requiered.
+                        </div>
+                    </div>
+                    <!-- Zip -->
+                    <div class="col-md-2 mt-3">
+                        <label for="zip" 
+                        class="form-label">Zip Code</label>
+                        <input id="zip"
+                        class="form-control bg-body-secondary" 
+                        type="number" placeholder="12345" required>
+                        <div class="invalid-feedback">
+                            Valid zip is requiered.
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Reason For Leaving -->
+                <div class="col my-3">
+                    <label for="reasonLeaving" 
+                    class="form-label">Reason For Leaving</label>
+                    <input type="text" 
+                    class="form-control bg-body-secondary" id="reasonLeaving" 
+                    placeholder="Enter Text Here...">
+                </div>
+
+                <!-- Job Description -->
+                <div class="col my-3">
+                    <label for="jobDisc" 
+                    class="form-label">Job Description (previous roles)</label>
+                    <input type="text" 
+                    class="form-control bg-body-secondary" id="jobDisc" 
+                    placeholder="Enter Text Here...">
+                </div>
+
+                <!-- Line Break -->
+                <hr class="my-3">
+                <!-- Contact them? Y/N-->
+                <div class="div row pt-2">
+                <div class="col-sm-12 col-md-5">
+                    <label class="form-check-label fw-bold" for="flexRadioDefault2">
+                        Can we contact them for follow up information? 
+                      </label>
+                </div>
+                <div class="col-sm-6 col-md-2">
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="yesRadio" id="yesRadio">
+                        <label class="form-check-label" for="flexRadioDefault1">
+                            Yes
+                        </label>
+                      </div>
+                </div>
+                <div class="col-sm-6 col-md-2">
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="yesRadio" id="yesRadio" checked>
+                        <label class="form-check-label" for="flexRadioDefault1">
+                            No
+                        </label>
+                      </div>
+                </div>
+                </div>
+
+                <!-- Hear About Us -->
+                <div class="row my-4">
+                    <div class="col-sm-12 col-md-3">
+                        <label for="hearAbt" 
+                        class="form-label fw-bold">How did you hear about us?</label>
+                    </div>
+                    <div class="col-sm-12 col-md-9">
+                        <select class="form-control bg-body-secondary" 
+                        id="hearAbt">
+                            <option value="Choose">Choose...</option>
+                            <option value="Former Employee">You are a former YNP Employee</option>
+                            <option value="Visited Yellowstone">Visited Yellowstone</option>
+                            <option value="Coolworks">Coolworks</option>
+                            <option value="Other Seasonal Employer">Other Seasonal Employer</option>
+                            <option value="University Online Job Bank">University Online Job Bank</option>
+                            <option value="Social Networking Site">Social Networking Site</option>
+                            <option value="Not Listed">Not Listed</option> 
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Education -->
+                <div class="container mt-3">
+                    <div class="card">
+                        <div class="card-body bg-body-secondary">
+                            <h4 class="my-2 pb-3 fw-bold text-center">Education</h4>
+                            <hr class="my-3">
+                            <div class="row">
+                                <!-- School -->
+                                <div class="col-sm-12 col-md-6">
+                                    <label for="schoolName" 
+                                    class="form-label fw-bold mt-3">Name of School</label>
+                                    <input type="text" 
+                                    class="form-control bg-dark-subtle" id="schoolName" 
+                                    placeholder="School Name">
+                                </div>
+                                
+                                <!-- Area Study -->
+                                <div class="col-sm-12 col-md-6">
+                                    <label for="areaStudy" 
+                                    class="form-label fw-bold mt-3">Area of Study</label>
+                                    <input type="text" 
+                                    class="form-control bg-dark-subtle" id="areaStudy" 
+                                    placeholder="Area of Study">
+                                </div>
+
+                                <!-- Degree -->
+                                <div class="col-sm-12 col-md-6">
+                                    <label for="degree" 
+                                    class="form-label fw-bold mt-3">Degree</label>
+                                    <input type="text" 
+                                    class="form-control bg-dark-subtle" id="degree" 
+                                    placeholder="Degree">
+                                </div>
+                                <!-- Graducation Date -->
+                                <div class="col-sm-12 col-md-6">
+                                    <label for="startDate" 
+                                    class="form-label fw-bold mt-3">Graducation Date</label>
+                                    <div class="input-group date" id="datepicker">
+                                        <input type="text" class="form-control bg-dark-subtle" placeholder="01/16/2024" required>
+                                        <span class="input-group-append">
+                                            <span class="input-group-text bg-body-secondary d-block">
+                                                <i class="fa fa-calendar"></i>
+                                            </span>
+                                        </span>
+                                        <div class="invalid-feedback">
+                                            Valid graducation date is requiered.
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Additional Training/Skills -->
+                                <div class="col-12 my-3">
+                                    <label for="additionalSchool mt-3" 
+                                    class="form-label fw-bold">Any Additional Training, Certificates, Skills</label>
+                                    <input type="text" 
+                                    class="form-control bg-dark-subtle" id="additionalSchool" 
+                                    placeholder="Enter Text Here...">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <hr class="my-3">
+                <!-- Fellon? Y/N-->
+                <div class="div row pt-2">
+                <div class="col-sm-12 pb-3">
+                    <label class="form-check-label fw-bold" for="flexRadioDefault2">
+                        Have you ever been convicted of a felony (including any pleas of "guilty" or "no contest") OR do you have any outstanding wants or warrants? A Background Check is completed on all employees upon arrival to Yellowstone. (Note: Conviction of a crime is not an automatic ban to employment - circumstances will be considered.)
+                      </label>
+                </div>
+                <div class="col-sm-6 col-md-2">
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="yesRadio" id="yesRadio">
+                        <label class="form-check-label" for="flexRadioDefault1">
+                            Yes
+                        </label>
+                      </div>
+                </div>
+                <div class="col-sm-6 col-md-2">
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="yesRadio" id="yesRadio" checked>
+                        <label class="form-check-label" for="flexRadioDefault1">
+                            No
+                        </label>
+                      </div>
+                </div>
+                </div>
+
+                <hr class="mx-3">
+                <div class="container">
+                    <div class="card">
+                        <div class="card-body bg-danger-subtle">
+                            <div class="col my-3">
+                                <p class="fw-bold">READ CAREFULLY BEFORE SUBMITTING THIS APPLICATION</p>
+                                <p>By submitting this form, I declare my answers to the questions on this application and any attachment, i.e. resume, etc., are true and accurate. Attachments CANNOT be sent with this online application. You must send attachments to us by e-mail or fax. FAX:(307) 344-5441 E-mail: info@yellowstonejobs.com. I authorize Xanterra Parks and Resorts and any accredited public or private investigative agency or individual conducting my background investigation to obtain and release any information relating to my background from individuals, schools, employers, criminal justice agencies, governmental agencies, financial institutions, credit bureaus, licensing agencies, or other sources of information in accordance with applicable laws for purposes of making a determination of my suitability or eligibility for employment. If employed, I understand that I must abide by the company's rules and regulations. I hereby consent to a drug screen as a condition of employment, if required. I understand this document, any offer of employment or any other employment related information does not constitute an employment contract. I understand employment is not a specified term and is at the mutual consent of the employee and company. Accordingly, either the employee or the company can terminate employment at will, with or without cause, at any time.</p>
+                            </div>
+                            <a href="index.html" type="button" class="btn btn-danger">Agree and Submit Application</a>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+            </div>
+        </form>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Boostrap JS -->
+    <script 
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" 
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" 
+        crossorigin="anonymous">
+    </script>
+
+    <script src="application.js" type="application/javascript"></script>
+
+</body>
+</html>

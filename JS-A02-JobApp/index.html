@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS2-JobApplication</title>
+    <!-- Bootstrap CSS -->
+    <link 
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" 
+        rel="stylesheet" 
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" 
+        crossorigin="anonymous">
+
+
+
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-md navbar-light bg-white">
+        <div class="container"> <!-- Navbar Container
+        Makes avabar expand to end of pages 
+        BUT due to the container being in the nav bar, 
+        the content doesn't expand to the edge of the page -->  
+        <!-- Yellowstone Logo -->
+        <a 
+            href="index.html"
+            class="navbar-brand mb-0 h1 pt-4">
+                <img 
+                class="d-inline-block align-top"
+                src="media/yellowstoneLogo.jpg" 
+                height="60" width="256" />
+        </a>
+
+        <!-- Add Button
+            - data-bs-target & aria-controls == id of Navbar 
+            - accessability tabs are the aria stuff
+        -->
+        <button 
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarNav" 
+        class="navbar-toggler"
+        aria-controls="navbarNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+        >
+            <span class="navbar-toggle-icon"></span>
+        </button>
+        <!-- Nav Items -->
+        <div 
+            class="collapse navbar-collapse justify-content-end" 
+            id="navbarNav">
+            <ul class="navbar-nav pt-4">
+                <li class="nav-item active px-4"> <!-- First one is normally active -->
+                    <a href="index.html" class="nav-link active"> <!-- using an a-tag here will help signify that it is a link-->
+                        Home
+                    </a>
+                </li>
+                <li class="nav-item px-4">
+                    <a href="application.html" class="nav-link"> 
+                        Apply Now
+                    </a>
+                </li>
+                <li class="nav-item px-4">
+                    <a href="aboutus.html" class="nav-link"> 
+                        About Us
+                    </a>
+                </li>
+            </ul>
+        </div>
+        </div>
+    </nav>
+    
+    <!-- Carousel Slider Style -->
+    <style>
+        .carousel-item{
+            height: 30rem;
+            background: #777;
+            color: white;
+            position: relative;
+            background-position: center;
+            background-size: cover;
+        }
+        .container{
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding-bottom: 15px;
+        }
+    </style>
+
+<!-- Carousel Slider -->
+<!-- global class -->
+<div id="myCarousel" class="carousel slide" data-ride="carousel"> 
+    <!-- ol objects == tabs for slider 
+        - don't really need to give them content, but ensure they have right class names and data elements-->
+    <ol class="carousel-indicators">
+        <li data-bs-target="#myCarousel" data-bs-slide-to="0" class="active"></li>
+        <li data-bs-target="#myCarousel" data-bs-slide-to="1"></li>
+        <li data-bs-target="#myCarousel" data-bs-slide-to="2"></li>
+    </ol>
+<div class="carousel-inner"> <!-- parent class -->
+    <!-- Item One -->
+    <div class="carousel-item active"
+    style="background-image: url(media/wtr.jpg);">
+        <div class="container position-absolute bottom-0 start-0"> <!-- everything after container is so that it displays in bottom left corner -->
+            <h1 class="container-header py-4">Equal Opportunity Employment</h1>
+            <p>If you are an individual with disabilities who needs accommodation or you are having 
+                difficulty using our web site to apply for employment, please contact the Human 
+                Resources team at (307) 344-5324.</p>
+
+            <p>Xanterra Parks & Resorts (Authorized Concessioner of the National Park Service) 
+                is an equal opportunity employer and does not discriminate against any individual 
+                in any phase of employment on the basis of race, color, creed, religion, sexual 
+                orientation, national origin, ancestry, veteran status, age, disability or any other 
+                legally protected status under applicable law. AA/EOE M/F/D/V</p>
+                <!-- Apply Now Btn -->
+                <a href="application.html" class="btn btn-lg btn-warning">
+                    Apply Now
+                </a>
+        </div>
+    </div>
+    <!-- Item Two -->
+    <div class="carousel-item"
+    style="background-image: url(media/tre.jpg);">
+        <div class="container position-absolute bottom-0 start-0">
+            <h1>Already Applied?</h1>
+            <p>Have you already submitted one application for this season's employment?  
+                If so, please DO NOT submit another application!   
+                Doing so slows your application and review process down significantly 
+                and you may lose the opportunity to be considered for the job you really want!</p>
+
+            <p>If you need to make ANY changes to your application for employment, please email us at info@yellowstonejobs.com.</p>
+            <p>Directions: Please follow these directions when completing this form:
+                PLEASE DO NOT APPLY MORE THAN ONCE PER SEASON. You may email application changes to info@yellowstonejobs.com.
+                A positive letter of recommendation is required and must be sent before you can begin employment. 
+                A background check is also a condition of employment and will be done on every employee. 
+                Send letter of recommendation to:</p>
+            <p>Yellowstone National Park Lodges, Human Resource</p>
+            <p>PO Box 165, YNP</p>
+            <p>WY 82190</p>
+            <p>Telephone: (307) 344- 5324&nbsp;&nbsp;&nbsp;(307) 344 - 5441&nbsp;&nbsp;&nbsp;info@yellowstonejobs.com</p>
+        </div>
+    </div>
+    <!-- Item Three -->
+    <div class="carousel-item"
+    style="background-image: url(media/monts.jpg);">
+        <div class="container position-absolute bottom-0 start-0">
+            <h1>Why Choose Us?</h1>
+            <p>Yellowstone is known for being the world’s first national park and a bucket 
+                list vacation destination. Working in the park allows you to brag that your 
+                life is better than a vacation. Yellowstone National Park employment gives you 
+                opportunities for adventure and life-changing experiences. Not only will you 
+                grow professionally, but you will also form lifelong friendships with people 
+                from all around the world. For a summer or for a career, working at Yellowstone 
+                is an inspiring place to live and explore. (STOLEN CONTENT FROM CITE)</p>
+
+                <!-- Apply Today Btn -->
+                <a href="aboutus.html" class="btn btn-lg btn-warning my-4">
+                    Learn More
+                </a>
+        </div>
+    </div>
+</div>
+    
+</div>
+
+
+
+
+
+
+
+
+
+
+    <!-- Boostrap JS -->
+    <script 
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" 
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" 
+        crossorigin="anonymous">
+    </script>
+</body>
+</html>
